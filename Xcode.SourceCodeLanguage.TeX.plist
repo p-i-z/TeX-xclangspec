@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>commentSyntaxes</key>
+	<array>
+		<dict>
+			<key>prefix</key>
+			<string>%</string>
+			<key>suffix</key>
+			<string>\n</string>
+		</dict>
+	</array>
+	<key>conformsToLanguageIdentifiers</key>
+	<array>
+		<string>Xcode.SourceCodeLanguage.Generic</string>
+	</array>
+	<key>documentationAbbreviation</key>
+	<string>tex</string>
+	<key>fileDataTypeIdentifiers</key>
+	<array>
+		<string>com.apple.tex.text</string>
+	</array>
+	<key>identifier</key>
+	<string>Xcode.SourceCodeLanguage.TeX</string>
+	<key>isHidden</key>
+	<false/>
+	<key>languageName</key>
+	<string>TeX</string>
+	<key>languageSpecification</key>
+	<string>xcode.lang.tex</string>
+	<key>supportsIndentation</key>
+	<true/>
+	<key>allowWhitespaceTrimming</key>
+	<true/>
+	<key>requiresHardTabs</key>
+	<false/>
+</dict>
+</plist>
