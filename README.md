@@ -26,4 +26,4 @@ and
 
 And this is what the script **TeX-Xcode-setup.sh** does, creating the appropriate folders if they do not exist already.
 
-**Note** Unzip TeX-xclangspec GitHub.zip, the folder **TeX-xclangspec GitHub** contains all these files. Run the script from inside that folder.
+**Note:** Unzip TeX-xclangspec GitHub.zip, the folder **TeX-xclangspec GitHub** contains all these files. Run the script from inside that folder.
