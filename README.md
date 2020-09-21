@@ -2,7 +2,7 @@
 
 **Xcode syntax highlighting for TeX under Xcode**
 
-Supported Xcode 11/12 Versions
+Supported Versions Xcode 11/12 
 
 Xcode will attempt to load the TeX.ideplugin if its Info.plist contains a UUID that matches the DVTPlugInCompatibilityUUID value in the Xcode's Info.plist.
 
