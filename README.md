@@ -24,4 +24,4 @@ and
 
 “**Basic TeX.xccolortheme**” -> ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
 
-And this is what the script **TeX-Xcode-setup.sh** does, creating just the appropriate folders if they do not exist already.
+And this is what the script **TeX-Xcode-setup.sh** does, creating the appropriate folders if they do not exist already.
