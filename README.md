@@ -4,12 +4,12 @@
 
 Supported Versions Xcode 11/12 
 
-Xcode will attempt to load the TeX.ideplugin if its Info.plist contains a UUID that matches the DVTPlugInCompatibilityUUID value in the Xcode's Info.plist.
+Xcode attempts to load the TeX.ideplugin if its Info.plist contains a UUID that matches the DVTPlugInCompatibilityUUID value in the Xcode's Info.plist.
 
 This UUID changes with each version of Xcode, so plugin authors need to keep adding UUIDs for each new Xcode that's released. 
-To get it open Terminal.app and paste the line: defaults read /Applications/Xcode.app/Contents/Info DVTPlugInCompatibilityUUID
+To get this UUID, open Terminal.app and paste the line: defaults read /Applications/Xcode.app/Contents/Info DVTPlugInCompatibilityUUID
 
-This plugin should support recent Xcode versions up to 13.
+The present plugin should support recent Xcode versions up to 12.
 
 To make the plugin working, you have to put yourself the right files at the right places.
 
