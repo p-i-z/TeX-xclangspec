@@ -16,9 +16,10 @@ Supported Xcode 11/12 Versions\
 \
 Xcode will attempt to load the TeX.ideplugin if its Info.plist contains a UUID that matches the DVTPlugInCompatibilityUUID value in the Xcode's Info.plist. \
 \
-This UUID changes with each version of Xcode, so plugin authors need to keep adding UUIDs for each new Xcode that's released. \
+This UUID changes with each version of Xcode, so plugin authors need to keep adding UUIDs for each new Xcode that's released. To get it open Terminal.app and copy/paste the line: defaults read /Applications/Xcode.app/Contents/Info DVTPlugInCompatibilityUUID\
 \
-This plugin should support recent Xcode versions up to 13.\
+\
+This plugin should support recent Xcode versions up to 12.\
 \
 To make the plugin working, you have to put yourself the right files at the right places. \
 \
@@ -48,6 +49,12 @@ Of course, there is no warranty that it will work with the next version of Xcode
 \f1\b0 \'94  ->  ~/Library/Developer/Xcode/UserData/FontAndColorThemes/\
 \
 \
-And this is exactly what the script 
+And this is what the script 
 \f0\b TeX-Xcode-setup.sh
-\f1\b0  does, creating just the appropriate folders if they do not exist already.}
+\f1\b0  does, creating the appropriate folders if they do not exist already.\
+\
+Note: Unzip 
+\f0\b TeX-xclangspec GitHub.zip
+\f1\b0 , the folder 
+\f0\b TeX-xclangspec GitHub
+\f1\b0  contains all these files. Run the script from inside that folder.}
