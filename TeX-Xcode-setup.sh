@@ -36,7 +36,9 @@ fi
 
 
 cp -r $SCRIPT_PATH/TeX.ideplugin $plugins_dir
-cp $SCRIPT_PATH/TeX-xclangspec $spec_dir
+
+cp $SCRIPT_PATH/TeX.xclangspec $spec_dir
+
 cp $SCRIPT_PATH/Xcode.SourceCodeLanguage.TeX.plist $metdat_dir
 
 cp $SCRIPT_PATH/"Basic TeX.xccolortheme" $FontAndColorThemes_dir
