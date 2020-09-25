@@ -23,7 +23,7 @@
 		BasedOn = "xcode.lang.simpleColoring";
 		Name = TeX;
 		Syntax = {
-        Tokenizer = "xcode.lang.tex.lexer";
+                        Tokenizer = "xcode.lang.tex.lexer";
 			IncludeRules = (   
 			"xcode.lang.tex.command", 
 			"xcode.lang.tex.math.block",
@@ -48,10 +48,8 @@
 		Syntax = {
 			SourceScannerClassName = TeXScanner;
 			IncludeRules = (
-						   
 			"xcode.lang.tex.beginkeyword",
 			"xcode.lang.tex.endkeyword",
-												
 			);
 		};
 	},
@@ -64,15 +62,15 @@
 		Identifier = "xcode.lang.tex.math.block";
 		Syntax = {
 			StartChars = "$$"; // \$ or $ seem to be equivalent
-			Match = (
-				"^$$\(.*?\)$$",
+			Match = ( 
+			       "^$$\(.*?\)$$",
 			);		
 //			CaptureTypes = ("xcode.syntax.plain");
 			Foldable = YES;
 			Recursive = NO;
 			IncludeRules = (
-				"xcode.lang.tex.command",
-				"xcode.lang.tex.comment.singleline", 
+				      "xcode.lang.tex.command",
+				      "xcode.lang.tex.comment.singleline", 
 			);
 			Type = "xcode.syntax.keyword";
 		};
@@ -103,7 +101,7 @@
 		Syntax = {
 			StartChars = "^\\";
 			Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ*_1234567890";
-            CaseSensitive = NO;			
+                        CaseSensitive = NO;			
 			Type = "xcode.syntax.identifier.macro";
 			AltType = "xcode.syntax.keyword";
 		};
@@ -148,10 +146,10 @@
 			Foldable = YES;    
 			Type = "xcode.syntax.plain";
 			IncludeRules = (
-				"xcode.lang.tex.command", 
-				"xcode.lang.tex.math.inline",
-				"xcode.lang.tex.math.block",
-				"xcode.lang.tex.comment.singleline", 
+				      "xcode.lang.tex.command", 
+				      "xcode.lang.tex.math.inline",
+				      "xcode.lang.tex.math.block",
+				      "xcode.lang.tex.comment.singleline", 
 			);
 		};
 	},
@@ -169,9 +167,9 @@
 			Type = "xcode.syntax.comment";
 			ParseEndBeforeIncludedRules = YES;
 			IncludeRules = (
-				"xcode.lang.url", 
-				"xcode.lang.url.mail", 
-				"xcode.lang.comment.mark",
+				      "xcode.lang.url", 
+				      "xcode.lang.url.mail", 
+				      "xcode.lang.comment.mark",
 			);
 		};
 	},
