@@ -7,8 +7,11 @@ SCRIPT_PATH="$(dirname "$BASH_SOURCE")"
 # Various directories for the plugin
 #
 plugins_dir=~/Library/Developer/Xcode/Plug-ins/
+
 spec_dir=/Applications/Xcode.app/Contents/SharedFrameworks/SourceModel.framework/Versions/A/Resources/LanguageSpecifications
+
 metdat_dir=/Applications/Xcode.app/Contents/SharedFrameworks/SourceModel.framework/Versions/A/Resources/LanguageMetadata
+
 FontAndColorThemes_dir=~/Library/Developer/Xcode/UserData/FontAndColorThemes/
 
 # Create Plug-ins directory if it doesn't exist
@@ -33,7 +36,7 @@ fi
 
 
 cp -r $SCRIPT_PATH/TeX.ideplugin $plugins_dir
-cp $SCRIPT_PATH/TeX.xclangspec $spec_dir
+cp $SCRIPT_PATH/TeX-xclangspec $spec_dir
 cp $SCRIPT_PATH/Xcode.SourceCodeLanguage.TeX.plist $metdat_dir
 
 cp $SCRIPT_PATH/"Basic TeX.xccolortheme" $FontAndColorThemes_dir
