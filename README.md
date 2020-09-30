@@ -15,15 +15,15 @@ To make the plugin working, you have to put yourself the right files at the righ
 
 Of course, there is no warranty that it will work with the next version of Xcode.
 
-“**TeX.ideplugin**” **->** ~/Library/Developer/Xcode/Plug-ins/
+“**TeX.ideplugin**” **->** `~/Library/Developer/Xcode/Plug-ins/`
 
-“**TeX.xclangspec**” **->** /Applications/Xcode.app/Contents/SharedFrameworks/SourceModel.framework/Versions/A/Resources/LanguageSpecifications/
+“**TeX.xclangspec**” **->** `/Applications/Xcode.app/Contents/SharedFrameworks/SourceModel.framework/Versions/A/Resources/LanguageSpecifications/`
 
-“**Xcode.SourceCodeLanguage.TeX.plist**” **->** /Applications/Xcode.app/Contents/SharedFrameworks/SourceModel.framework/Versions/A/Resources/LanguageMetadata/
+“**Xcode.SourceCodeLanguage.TeX.plist**” **->** `/Applications/Xcode.app/Contents/SharedFrameworks/SourceModel.framework/Versions/A/Resources/LanguageMetadata/`
 
 and
 
-“**Basic TeX.xccolortheme**” -> ~/Library/Developer/Xcode/UserData/FontAndColorThemes/
+“**Basic TeX.xccolortheme**” **->** `~/Library/Developer/Xcode/UserData/FontAndColorThemes/`
 
 And this is what the script **TeX-Xcode-setup.sh** does, creating the appropriate folders if they do not exist already.
 
