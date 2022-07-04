@@ -2,7 +2,7 @@
  Tex LaTex Language Specification 
  Part of package TeX-XCode Syntax Coloring
  Patrick Iglesias-Zemmour 
- Version 1.3 June 22, 2010 --- 2015 -- 2017
+ Version 1.3 June 22, 2010 --- 2015 -- 2017 -- 2022
  http://math.huji.ac.il/~piz/
  
  Creative Common Attribution License
@@ -10,172 +10,189 @@
  */  
 
 ( 
-
-	/****************************************************************************/
-	// MARK: TeX Specification Top-Level
-	/****************************************************************************/
-	
-	{
-		Identifier = "xcode.lang.tex";
-
-		Description = "TeX Coloring";
-		IncludeInMenu = YES;
-		BasedOn = "xcode.lang.simpleColoring";
-		Name = TeX;
-		Syntax = {
-                        Tokenizer = "xcode.lang.tex.lexer";
-			IncludeRules = (   
-			"xcode.lang.tex.command", 
-			"xcode.lang.tex.math.block",
-			"xcode.lang.tex.math.inline",
-			"xcode.lang.tex.comment.singleline",
-			"xcode.lang.tex.beginendblock", 
-			);
-		Type = "xcode.syntax.plain";
-		};
-	},
-
-
-	/****************************************************************************/
-	// MARK: TeX Lexers
-	/****************************************************************************/
   
-	// The following rule returns tokens to the other rules
+  /****************************************************************************/
+  // MARK: TeX Specification Top-Level
+  /****************************************************************************/
   
-	{
-		Identifier = "xcode.lang.tex.lexer";
-
-		Syntax = {
-			SourceScannerClassName = TeXScanner;
-			IncludeRules = (
-			"xcode.lang.tex.beginkeyword",
-			"xcode.lang.tex.endkeyword",
-			);
-		};
-	},
-  
-	/****************************************************************************/
-	// MARK: TeX Specification Environment math.block
-	/****************************************************************************/
-	 
   {
-		Identifier = "xcode.lang.tex.math.block";
-		Syntax = {
-			StartChars = "$$"; // \$ or $ seem to be equivalent
-			Match = ( 
-			       "^$$\(.*?\)$$",
-			);		
-//			CaptureTypes = ("xcode.syntax.plain");
-			Foldable = YES;
-			Recursive = NO;
-			IncludeRules = (
-				      "xcode.lang.tex.command",
-				      "xcode.lang.tex.comment.singleline", 
-			);
-			Type = "xcode.syntax.keyword";
-		};
-	},
-	
-	/****************************************************************************/
-	// MARK: Math Inline 
-	/****************************************************************************/
-
-  {
-		Identifier = "xcode.lang.tex.math.inline";
-		Syntax = {
-			Start = "$";  // \$ or $ seem to be equivalent
-			End = "$";
-			Foldable = NO;
-			Type = "xcode.syntax.keyword";
-		};
-	},
-  
-	/****************************************************************************/
-	// MARK: TeX Specification commands
-	/****************************************************************************/
-	
-	// Define tex commands
-  
-  	{
-		Identifier = "xcode.lang.tex.command";
-		Syntax = {
-			StartChars = "^\\";
-			Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ*_1234567890";
-                        CaseSensitive = NO;			
-			Type = "xcode.syntax.identifier.macro";
-			AltType = "xcode.syntax.keyword";
-		};
-	},
-
-	
-	/****************************************************************************/
-	// MARK: TeX Specification Environment block
-	/****************************************************************************/
-	
-	{
-		Identifier = "xcode.lang.tex.beginkeyword";
-		Syntax = {
-			StartChars = "\\";
-			Match = (
-				"^\\\\begin\\{\(.*?\)\\}",
-			);		
- 			CaptureTypes = ( "xcode.syntax.plain" );
-			Type = "xcode.syntax.string";
-		};
-	},
-	
-	{
-		Identifier = "xcode.lang.tex.endkeyword";
-		Syntax = {
-			StartChars = "\\";
-			Match = (
-				"^\\\\end\\{\(.*?\)\\}",
-			);
-			CaptureTypes = ( "xcode.syntax.plain" );
-			Type = "xcode.syntax.string";
-		};
-	},
-	
-	{
-		Identifier = "xcode.lang.tex.beginendblock";
-		Syntax = {
-        Tokenizer = "xcode.lang.tex.lexer";
-			Start = "xcode.lang.tex.beginkeyword";
-			End = "xcode.lang.tex.endkeyword";
-			Recursive = YES;
-			Foldable = YES;    
-			Type = "xcode.syntax.plain";
-			IncludeRules = (
-				      "xcode.lang.tex.command", 
-				      "xcode.lang.tex.math.inline",
-				      "xcode.lang.tex.math.block",
-				      "xcode.lang.tex.comment.singleline", 
-			);
-		};
-	},
-	
-	/****************************************************************************/
-	// MARK: TeX Language Specification comments
-	/****************************************************************************/
-  
-	{
-		Identifier = "xcode.lang.tex.comment.singleline";
-		Syntax = {
-			Start = "%";
-			EscapeChar = "\\";
-			End = "\n";
-			Type = "xcode.syntax.comment";
-			ParseEndBeforeIncludedRules = YES;
-			IncludeRules = (
-				      "xcode.lang.url", 
-				      "xcode.lang.url.mail", 
-				      "xcode.lang.comment.mark",
-			);
-		};
-	},
+    Identifier = "xcode.lang.tex";
     
-	/****************************************************************************/
-	// MARK: END TeX Language Specification
-	/****************************************************************************/
+    Description = "TeX Coloring";
+    IncludeInMenu = YES;
+    BasedOn = "xcode.lang.simpleColoring";
+    Name = TeX;
+    Syntax = {
+      Tokenizer = "xcode.lang.tex.lexer";
+      IncludeRules = (   
+        "xcode.lang.tex.math.block", // Math Must be in this order
+        "xcode.lang.tex.math.inline",
+        "xcode.lang.tex.command",
+        "xcode.lang.tex.command.special",
+        "xcode.lang.tex.comment.singleline",
+        "xcode.lang.tex.beginendblock", 
+      );
+      Type = "xcode.syntax.plain";
+    };
+  },
+  
+  
+  /****************************************************************************/
+  // MARK: TeX Lexers
+  /****************************************************************************/
+  
+  // The following rule returns tokens to the other rules
+  
+  {
+    Identifier = "xcode.lang.tex.lexer";
+    
+    Syntax = {
+      SourceScannerClassName = TeXScanner;
+      IncludeRules = (
+        "xcode.lang.tex.beginkeyword",
+        "xcode.lang.tex.endkeyword",
+      );
+    };
+  },
+  
+  /****************************************************************************/
+  // MARK: TeX Specification Environment math.block
+  /****************************************************************************/
+  
+  {
+    Identifier = "xcode.lang.tex.math.block";
+    Syntax = {
+      Start = "\$\$";
+      End = "\$\$";
+      Match = (
+        "^\$\$\(.*?\)\$\$",
+      );
+      Foldable = YES;
+      Recursive = NO;
+      IncludeRules = (
+        "xcode.lang.tex.command",
+        "xcode.lang.tex.command.special",
+        "xcode.lang.tex.comment.singleline",
+      );
+      CaptureTypes = ("xcode.syntax.plain");
+      Type = "xcode.syntax.keyword";
+    };
+  },
+  
+  /****************************************************************************/
+  // MARK: Math Inline 
+  /****************************************************************************/
+  
+  {
+    Identifier = "xcode.lang.tex.math.inline";
+    Syntax = {
+      Start = "\$";  // \$ or $ seem to be equivalent
+      End = "\$";
+      Foldable = NO;
+      Type = "xcode.syntax.keyword";
+    };
+  },
+  
+  /****************************************************************************/
+  // MARK: TeX Specification commands
+  /****************************************************************************/
+  
+  // Define tex commands
+  
+  {
+    Identifier = "xcode.lang.tex.command";
+    Syntax = {
+      StartChars = "^\\";
+      Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,";
+      CaseSensitive = NO;			
+      Type = "xcode.syntax.identifier.macro";
+      AltType = "xcode.syntax.word";
+    };
+  },
+  
+  {
+    Identifier = "xcode.lang.tex.command.special";
+    Syntax = {
+      StartChars = "\\";
+      Chars = "'\"\^`{}()[]-+=.,;:/|%¬ß*#&@$<>~\\";
+      Match = (
+        "\\,", "\\\\","\\;","\\[",  "\\]","\\." // Add some here if necessary.
+      );
+      Type = "xcode.syntax.identifier.macro";
+      AltType = "xcode.syntax.word";
+    };
+  },
+  
+  
+  /****************************************************************************/
+  // MARK: TeX Specification Environment block
+  /****************************************************************************/
+  
+  {
+    Identifier = "xcode.lang.tex.beginkeyword";
+    Syntax = {
+      StartChars = "\\";
+      Match = (
+        "^\\\\begin\\{\(.*?\)\\}",
+      );		
+      CaptureTypes = ( "xcode.syntax.attribute" );
+      Type = "xcode.syntax.string";
+    };
+  },
+  
+  {
+    Identifier = "xcode.lang.tex.endkeyword";
+    Syntax = {
+      StartChars = "\\";
+      Match = (
+        "^\\\\end\\{\(.*?\)\\}",
+      );
+      CaptureTypes = ( "xcode.syntax.attribute" );
+      Type = "xcode.syntax.string";
+    };
+  },
+  
+  {
+    Identifier = "xcode.lang.tex.beginendblock";
+    Syntax = {
+      Tokenizer = "xcode.lang.tex.lexer";
+      Start = "xcode.lang.tex.beginkeyword";
+      End = "xcode.lang.tex.endkeyword";
+      Recursive = YES;
+      Foldable = YES;    
+      Type = "xcode.syntax.plain";
+      IncludeRules = (
+        "xcode.lang.tex.math.block", // Math Must be in this order
+        "xcode.lang.tex.math.inline",
+        "xcode.lang.tex.command",
+        "xcode.lang.tex.command.special",
+        "xcode.lang.tex.comment.singleline",
+      );
+    };
+  },
+  
+  /****************************************************************************/
+  // MARK: TeX Language Specification comments
+  /****************************************************************************/
+  
+  {
+    Identifier = "xcode.lang.tex.comment.singleline";
+    Syntax = {
+      Start = "%";
+      EscapeChar = "\\";
+      End = "\n";
+      Type = "xcode.syntax.comment";
+      ParseEndBeforeIncludedRules = YES;
+      IncludeRules = (
+        "xcode.lang.url", 
+        "xcode.lang.url.mail", 
+        "xcode.lang.comment.mark",
+      );
+    };
+  },
+  
+  /****************************************************************************/
+  // MARK: END TeX Language Specification
+  /****************************************************************************/
   
 )
