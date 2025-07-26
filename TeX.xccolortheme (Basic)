@@ -152,11 +152,13 @@
 		<string>6.23986e-08 0 0.501961 1</string>
 		<key>xcode.syntax.url</key>
 		<string>0 0 1 1</string>
+                <key>xcode.syntax.attribute</key>
+                <string>0.501961 0.282353 0.00392157 1</string>
 	</dict>
 	<key>DVTSourceTextSyntaxFonts</key>
 	<dict>
 		<key>xcode.syntax.attribute</key>
-		<string>Menlo-Regular - 13.0</string>
+		<string>Menlo-Bold - 13.0</string>
 		<key>xcode.syntax.character</key>
 		<string>Menlo-Regular - 13.0</string>
 		<key>xcode.syntax.comment</key>
@@ -206,9 +208,20 @@
 		<key>xcode.syntax.preprocessor</key>
 		<string>Menlo-Regular - 13.0</string>
 		<key>xcode.syntax.string</key>
-		<string>Menlo-Regular - 13.0</string>
+		<string>Menlo-Bold - 13.0</string>
 		<key>xcode.syntax.url</key>
 		<string>Menlo-Regular - 13.0</string>
+		<key>xcode.syntax.preprocessor</key>
+        <string>0.0588235 0.407843 0.627451 1</string> <!-- A nice blue for arguments -->
+        <key>xcode.syntax.string</key>
+        <string>0.823529 0.435294 0.0509804 1</string> <!-- A distinct orange for options -->
+
+        <key>xcode.syntax.string</key>
+		<string>0.823529 0.435294 0.0509804 1</string> <!-- An orange color for options in [] -->
+
+		<key>xcode.syntax.preprocessor</key>
+		<string>0.0588235 0.407843 0.627451 1</string> <!-- A blue color for arguments in {} -->
+
 	</dict>
 </dict>
 </plist>
