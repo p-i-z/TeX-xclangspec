@@ -4,6 +4,8 @@ This plugin provides full-featured syntax highlighting for TeX and LaTeX documen
 
 It was originally created by Patrick Iglesias-Zemmour and has been updated and improved in collaboration with Google's Gemini to support modern Xcode versions and provide more intelligent highlighting.
 
+*(Optional: Add a new screenshot of the highlighter in action here.)*
+
 ## Features
 
 *   **Intelligent Command Highlighting:** Recognizes and separately colors:
@@ -83,6 +85,6 @@ To complete the setup, you can configure Xcode to compile your `.tex` files.
 3.  Expand the **"Pre-actions"** section and click the `+` to add a **"New Run Script Action"**.
 4.  In the script editor, paste the following command, replacing `YourFile.tex` with the name of your main document:
     ```sh
-    /Library/TeX/texbin/pdflatex "${SRCROOT}/YourFile.tex"
+    /Library/TeX/texbin/pdflatex $(SRCROOT)YourFile.tex && open -a "/Applications/XCode.app" $(SRCROOT)YourFile.pdf
     ```
 Now, pressing **⌘B** (Build) will compile your document.
