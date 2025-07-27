@@ -81,7 +81,7 @@ To complete the setup, you can configure Xcode to compile your `.tex` files.
 1.  In your Xcode project, go to **Product > Scheme > Edit Scheme**.
 2.  Select the **"Build"** phase in the left panel.
 3.  Expand the **"Pre-actions"** section and click the `+` to add a **"New Run Script Action"**.
-4.  In the script editor, paste the following command, replacing `YourFile.tex` with the name of your main document:
+4.  In the script editor, paste the following command, replacing `YourFile` with the name of your main document:
     ```sh
     /Library/TeX/texbin/pdflatex $(SRCROOT)YourFile.tex && open -a "/Applications/XCode.app" $(SRCROOT)YourFile.pdf
     ```
