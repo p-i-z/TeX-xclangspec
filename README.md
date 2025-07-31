@@ -4,9 +4,6 @@ This plugin provides full-featured syntax highlighting for TeX and LaTeX documen
 
 It was originally created by Patrick Iglesias-Zemmour and has been updated and improved in collaboration with Google's Gemini to support modern Xcode versions and provide more intelligent highlighting.
 
-![Syntax Highlighting Screenshot](https://user-images.githubusercontent.com/..../screenshot.png)
-*(Note: You will need to take a new screenshot of the highlighter in action and upload it to GitHub to make this image link work.)*
-
 ## Why Use Xcode for TeX?
 
 *   **Minimalist & Focused:** Enjoy a clean, distraction-free writing environment without the clutter of traditional TeX editors.
