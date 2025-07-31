@@ -4,6 +4,9 @@ This plugin provides full-featured syntax highlighting for TeX and LaTeX documen
 
 It was originally created by Patrick Iglesias-Zemmour and has been updated and improved in collaboration with Google's Gemini to support modern Xcode versions and provide more intelligent highlighting.
 
+![Syntax Highlighting Screenshot](https://user-images.githubusercontent.com/..../screenshot.png)
+*(Note: You will need to take a new screenshot of the highlighter in action and upload it to GitHub to make this image link work.)*
+
 ## Why Use Xcode for TeX?
 
 *   **Minimalist & Focused:** Enjoy a clean, distraction-free writing environment without the clutter of traditional TeX editors.
@@ -84,7 +87,7 @@ To complete the setup, you can configure Xcode to compile your `.tex` files with
 4.  In the script editor, ensure "Provide build settings from" is set to your project. Paste the following command, replacing `YourFile.tex` with the name of your main document:
     ```sh
     # This uses the standard TeX Live path. Adjust if your installation is different.
-    /Library/TeX/texbin/pdflatex -interaction=nonstopmode -output-directory="${SRCROOT}" "${SRCROOT}/YourFile.tex"
+      /Library/TeX/texbin/pdflatex -interaction=nonstopmode -output-directory="${SRCROOT}" "${SRCROOT}/YourFile.tex" && open -a "/Applications/XCode.app" $(SRCROOT)YourFile.pdf
     ```
 Now, pressing **⌘B** (Build) will compile your document into a PDF in your project's root directory.
 
