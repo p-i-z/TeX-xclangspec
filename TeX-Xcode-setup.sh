@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 # TeX-Xcode-setup.sh
 # A script to install the TeX syntax highlighting plugin for Xcode.
