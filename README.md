@@ -1,4 +1,4 @@
-# TeX & LaTeX Syntax Highlighting for Xcode
+# TeX & LaTeX Syntax Highlighting for Xcode 
 
 This plugin provides full-featured syntax highlighting for TeX and LaTeX documents directly within the Xcode IDE, turning it into a powerful, minimalist environment for academic and technical writing.
 
